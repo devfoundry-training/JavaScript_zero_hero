@@ -1,5 +1,5 @@
 // ============================================================
-// Control Flow — if/else, switch, ternary
+// Control Flow: if/else, switch, ternary
 // ============================================================
 
 // ------------------------------------------------------------
@@ -49,13 +49,13 @@ switch (day) {
 }
 
 // ------------------------------------------------------------
-// Ternary — compact conditional expression
+// Ternary: compact conditional expression
 // ------------------------------------------------------------
 
 const age = 20;
 const status = age >= 18 ? "Adult" : "Minor";
 console.log(`Age ${age}: ${status}`);
 
-// Nested ternary (avoid in production — hard to read)
+// Nested ternary (avoid in production, hard to read)
 const tier = score >= 90 ? "Gold" : score >= 75 ? "Silver" : "Bronze";
 console.log(`Tier: ${tier}`);

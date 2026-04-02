@@ -1,32 +1,92 @@
 // ============================================================
-// Functions — Declarations, Arrows, Closures, Higher-Order
+// Functions: Declarations, Arrows, Closures, Higher-Order
 // ============================================================
 
 // ------------------------------------------------------------
-// Function Declaration vs Expression
+// Function Declaration vs Expression vs Arrow
 // ------------------------------------------------------------
 
-// Declaration — hoisted (available before its line in code)
-function add(a, b) {
-    return a + b;
+// Variables
+let x, y, z;
+x = 5;
+y = 10;
+z = 15;
+
+// Normal function (requires 'function' keyword and 'return')
+function normalFunc(i, j) {
+    return i + j;
 }
 
-// Expression — NOT hoisted
+// Arrow function (implicit return for single expression)
+const arrowFunc = (i, j) => i + j;
+
+// Arrow function without implicit return (needs curly braces)
+const arrowFuncNonImplicit = (i, j) => { return i + j; };
+
+let oldResult = normalFunc(1, 2);          // 3
+let result = arrowFunc(1, 2);              // 3
+let nonRes = arrowFuncNonImplicit(1, 2);   // 3
+
+console.log("=== Function Types ===");
+console.log(oldResult, result, nonRes);
+
+// Function expression (NOT hoisted)
 const subtract = function(a, b) {
     return a - b;
 };
 
-// Arrow function — concise syntax, no own `this`
-const multiply = (a, b) => a * b;
-
-// Single parameter — parentheses optional
+// Single parameter: parentheses optional
 const double = n => n * 2;
 
-console.log("=== Basics ===");
-console.log(add(3, 5));       // 8
 console.log(subtract(10, 4)); // 6
-console.log(multiply(3, 4));  // 12
 console.log(double(7));       // 14
+
+// ------------------------------------------------------------
+// "this" Binding: Arrow vs Normal
+// ------------------------------------------------------------
+
+// Arrow functions inherit "this" from the enclosing scope.
+// Normal functions get their own "this" (often not what you want).
+
+console.log("\n=== this Behaviour ===");
+
+// Arrow function: "this" refers to the TimerArrow object
+function TimerArrow() {
+    this.seconds = 0;
+    setInterval(() => {
+        this.seconds++;  // 'this' refers to the TimerArrow object
+        // console.log(this.seconds);
+    }, 1000);
+}
+
+// Normal function: "this" does NOT refer to the TimerNormal object
+function TimerNormal() {
+    this.seconds = 0;
+    setInterval(function() {
+        this.seconds++;  // 'this' refers to the global object (or undefined in strict mode)
+        // console.log(this.seconds);
+    }, 1000);
+}
+
+// Uncomment the console.log lines above to see the difference.
+// TimerArrow counts up correctly; TimerNormal gives NaN.
+
+// ------------------------------------------------------------
+// Arguments: rest params vs arguments object
+// ------------------------------------------------------------
+
+console.log("\n=== Arguments ===");
+
+// Arrow functions do NOT have an 'arguments' object. Use rest params.
+const arrowFuncWithRest = (...args) => args.reduce((sum, num) => sum + num, 0);
+
+// Normal functions have the 'arguments' object
+const normalFuncWithArguments = function() {
+    return Array.from(arguments).reduce((sum, num) => sum + num, 0);
+};
+
+console.log(arrowFuncWithRest(1, 2, 3));        // 6
+console.log(normalFuncWithArguments(1, 2, 3));   // 6
 
 // ------------------------------------------------------------
 // Default Parameters
@@ -52,7 +112,7 @@ console.log("\n=== Rest ===");
 console.log(sum(1, 2, 3, 4)); // 10
 
 // ------------------------------------------------------------
-// Higher-Order Functions — functions that take/return functions
+// Higher-Order Functions: functions that take/return functions
 // ------------------------------------------------------------
 
 console.log("\n=== Higher-Order ===");
@@ -70,7 +130,7 @@ const triple = multiplier(3);
 console.log(triple(10)); // 30
 
 // ------------------------------------------------------------
-// Closures — inner function captures outer scope
+// Closures: inner function captures outer scope
 // ------------------------------------------------------------
 
 console.log("\n=== Closures ===");
@@ -90,7 +150,7 @@ c.increment();
 c.decrement();
 console.log("Counter:", c.value()); // 1
 
-// The count variable is private — only accessible via the returned methods.
+// The count variable is private, only accessible via the returned methods.
 // This is the closure pattern for encapsulation in JS.
 
 // ------------------------------------------------------------
@@ -113,7 +173,23 @@ fetchData((result) => {
 // Promises and async/await (see async/) replaced deeply nested callbacks.
 
 // ------------------------------------------------------------
-// IIFE — Immediately Invoked Function Expression
+// Working with Function Arguments via Spread
+// ------------------------------------------------------------
+
+console.log("\n=== Spread with Functions ===");
+
+function add(a, b, c) {
+    return a + b + c;
+}
+
+const numbersToSum = [1, 2, 3];
+console.log("Sum of numbers:", add(...numbersToSum)); // 6
+
+// Rest params collect; spread expands. They look the same (...) but
+// rest is used in function definitions, spread is used at call sites.
+
+// ------------------------------------------------------------
+// IIFE: Immediately Invoked Function Expression
 // ------------------------------------------------------------
 
 console.log("\n=== IIFE ===");
@@ -123,5 +199,5 @@ console.log("\n=== IIFE ===");
     console.log("IIFE ran, secret:", secret);
 })();
 
-// secret is not accessible here — IIFE creates its own scope.
+// secret is not accessible here. IIFE creates its own scope.
 // Common pattern for module encapsulation before ES modules existed.

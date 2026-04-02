@@ -1,5 +1,5 @@
 // ============================================================
-// OOP — Classes, Inheritance, Encapsulation
+// OOP: Classes, Inheritance, Encapsulation
 // ============================================================
 
 // ------------------------------------------------------------
@@ -27,7 +27,7 @@ console.log("=== Classes ===");
 console.log(car.describe());
 
 // ------------------------------------------------------------
-// Inheritance — extends and super
+// Inheritance: extends and super
 // ------------------------------------------------------------
 
 class ElectricVehicle extends Vehicle {
@@ -45,15 +45,15 @@ class ElectricVehicle extends Vehicle {
 const ev = new ElectricVehicle("Tesla", "Model 3", 2024, 350);
 console.log("\n=== Inheritance ===");
 console.log(ev.describe());
-console.log("Is Vehicle:", ev instanceof Vehicle);     // true
-console.log("Is EV:", ev instanceof ElectricVehicle);   // true
+console.log("Is Vehicle:", ev instanceof Vehicle);       // true
+console.log("Is EV:", ev instanceof ElectricVehicle);     // true
 
 // ------------------------------------------------------------
-// Private Fields (#) — ES2022
+// Private Fields (#)
 // ------------------------------------------------------------
 
 class BankAccount {
-    #balance; // truly private — not accessible outside the class
+    #balance; // truly private, not accessible outside the class
 
     constructor(owner, initial = 0) {
         this.owner = owner;
@@ -81,7 +81,7 @@ console.log("\n=== Private Fields ===");
 const account = new BankAccount("Alice", 100);
 account.deposit(50);
 console.log("Balance:", account.balance); // 150
-// account.#balance = 999; // SyntaxError — truly private
+// account.#balance = 999; // SyntaxError: truly private
 
 // ------------------------------------------------------------
 // Static Methods and Properties

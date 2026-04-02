@@ -1,5 +1,5 @@
 // ============================================================
-// Task 03: Async — Promises and async/await
+// Task 03: Async: Promises and async/await
 // ============================================================
 // Complete each section. Run with: node tasks/03_async_task.js
 // ============================================================
@@ -52,3 +52,8 @@ function findUser(id) {
 //    to `attempts` times. If all attempts fail, throw the
 //    last error.
 
+
+// 8. Write a function that fetches data from
+//    https://jsonplaceholder.typicode.com/todos/1 using
+//    fetch and async/await. Parse the JSON and print it.
+//    (Requires Node 18+ or a browser)

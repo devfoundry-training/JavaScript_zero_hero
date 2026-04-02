@@ -1,5 +1,5 @@
 // ============================================================
-// DOM Manipulation — Selectors, Events, Dynamic Content
+// DOM Manipulation: Selectors, Events, Dynamic Content
 // ============================================================
 // This file is designed to run in a browser console or linked
 // to an HTML file. It will not produce output in Node.js.
@@ -9,14 +9,14 @@
 // Selecting Elements
 // ------------------------------------------------------------
 
-// By ID — returns single element or null
+// By ID: returns single element or null
 // const header = document.getElementById("header");
 
-// By CSS selector — returns first match or null
+// By CSS selector: returns first match or null
 // const firstButton = document.querySelector(".btn");
 // const nav = document.querySelector("nav > ul");
 
-// All matching — returns NodeList (array-like)
+// All matching: returns NodeList (array-like)
 // const allButtons = document.querySelectorAll(".btn");
 
 // Older methods (still work, less flexible)
@@ -43,7 +43,7 @@
 // header.classList.toggle("highlight");
 // header.classList.contains("active"); // true
 
-// Inline styles (avoid where possible — prefer CSS classes)
+// Inline styles (avoid where possible, prefer CSS classes)
 // header.style.color = "blue";
 // header.style.fontSize = "24px";
 
@@ -82,7 +82,7 @@
 //   DOMContentLoaded, load, resize, scroll
 
 // ------------------------------------------------------------
-// Event Delegation — handle events on dynamic content
+// Event Delegation: handle events on dynamic content
 // ------------------------------------------------------------
 
 // Instead of adding listeners to every child element,
@@ -113,7 +113,7 @@
 // });
 
 // ------------------------------------------------------------
-// DOMContentLoaded — wait for HTML to be parsed
+// DOMContentLoaded: wait for HTML to be parsed
 // ------------------------------------------------------------
 
 // document.addEventListener("DOMContentLoaded", () => {
@@ -122,6 +122,6 @@
 // });
 
 // Note: scripts with defer attribute or placed at end of <body>
-// don't need this — the DOM is already available.
+// don't need this. The DOM is already available.
 
-console.log("DOM module loaded — run this in a browser, not Node.js");
+console.log("DOM module loaded. Run this in a browser, not Node.js.");

@@ -1,9 +1,9 @@
 // ============================================================
-// Async JavaScript — Callbacks, Promises, async/await
+// Async JavaScript: Callbacks, Promises, async/await, Fetch
 // ============================================================
 
 // ------------------------------------------------------------
-// Callbacks — the original async pattern
+// Callbacks: the original async pattern
 // ------------------------------------------------------------
 
 console.log("=== Callbacks ===");
@@ -21,11 +21,26 @@ fetchUser(1, (user) => {
 // Problem: nested callbacks become unreadable ("callback hell")
 
 // ------------------------------------------------------------
-// Promises — cleaner async handling
+// Promises: cleaner async handling
 // ------------------------------------------------------------
 
 console.log("\n=== Promises ===");
 
+const myPromise = new Promise((resolve, reject) => {
+    const success = true;
+
+    if (success) {
+        resolve("Success!"); // The promise is fulfilled
+    } else {
+        reject("Error occurred!"); // The promise is rejected
+    }
+});
+
+myPromise
+    .then(result => console.log(result))   // "Success!" if resolved
+    .catch(error => console.log(error));   // "Error occurred!" if rejected
+
+// Returning a Promise from a function
 function fetchUserPromise(id) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -43,18 +58,44 @@ fetchUserPromise(1)
     .then(user => console.log("Promise result:", user))
     .catch(err => console.log("Error:", err.message));
 
-// Chaining — each .then() returns a new Promise
+// Chaining: each .then() returns a new Promise
 fetchUserPromise(2)
     .then(user => user.name.toUpperCase())
     .then(name => console.log("Chained:", name))
     .catch(err => console.log("Error:", err.message));
 
 // ------------------------------------------------------------
-// async / await — syntactic sugar over Promises
+// Fetch API: Promises in practice
+// ------------------------------------------------------------
+
+// fetch() returns a Promise. This is the standard way to make
+// HTTP requests in browsers and Node 18+.
+
+// fetch('https://jsonplaceholder.typicode.com/todos/1')
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch(error => console.log('Error:', error));
+
+// ------------------------------------------------------------
+// async/await: syntactic sugar over Promises
 // ------------------------------------------------------------
 
 console.log("\n=== async/await ===");
 
+// Async awaits can handle requests more effectively
+async function fetchData() {
+    try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.log("Error:", error);
+    }
+}
+
+// fetchData(); // Uncomment to run (requires Node 18+ or browser)
+
+// Same pattern with our local Promise function
 async function getUser(id) {
     try {
         const user = await fetchUserPromise(id);
@@ -65,7 +106,6 @@ async function getUser(id) {
     }
 }
 
-// Call async function
 getUser(1);
 
 // Error handling with async/await
@@ -81,7 +121,7 @@ async function getUserOrFail() {
 getUserOrFail();
 
 // ------------------------------------------------------------
-// Promise.all — run multiple promises in parallel
+// Promise.all: run multiple promises in parallel
 // ------------------------------------------------------------
 
 async function fetchAll() {
@@ -95,22 +135,43 @@ async function fetchAll() {
 
 fetchAll();
 
-// Promise.allSettled — like all, but doesn't short-circuit on failure
-// Promise.race — resolves/rejects with the first settled promise
-// Promise.any — resolves with the first fulfilled promise
+// Real-world example with fetch:
+// const fetchPost = fetch('https://jsonplaceholder.typicode.com/posts/1');
+// const fetchUser = fetch('https://jsonplaceholder.typicode.com/users/1');
+//
+// Promise.all([fetchPost, fetchUser])
+//     .then(responses => Promise.all(responses.map(res => res.json())))
+//     .then(data => {
+//         const [post, user] = data;
+//         console.log('Post:', post);
+//         console.log('User:', user);
+//     })
+//     .catch(error => console.log('Error:', error));
+
+// Promise.allSettled: like all, but doesn't short-circuit on failure
+// Promise.race: resolves/rejects with the first settled promise
+// Promise.any: resolves with the first fulfilled promise
 
 // ------------------------------------------------------------
-// Fetch API (browser/Node 18+)
+// Axios: a popular HTTP client (npm i axios)
 // ------------------------------------------------------------
 
-// async function fetchPokemon() {
-//     const response = await fetch("https://pokeapi.co/api/v2/pokemon/pikachu");
-//     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-//     const data = await response.json();
-//     console.log(data.name, data.height, data.weight);
-// }
+// Axios streamlines the process. It handles JSON parsing
+// automatically and has a cleaner error handling API.
 
-// Uncomment and run with Node 18+ or in a browser console.
+// const axios = require("axios");
+//
+// axios.get("https://pokeapi.co/api/v2/pokemon")
+//     .then(response => {
+//         console.log("Data received:");
+//         const data = response.data.results;
+//         data.forEach(pokemon => {
+//             console.log(pokemon.name);
+//         });
+//     })
+//     .catch(error => {
+//         console.error("Error fetching data:", error);
+//     });
 
 // ------------------------------------------------------------
 // Key Rules

@@ -1,5 +1,5 @@
 // ============================================================
-// Operators — Arithmetic, Comparison, Logical, Nullish
+// Operators: Arithmetic, Comparison, Logical, Nullish
 // ============================================================
 
 // ------------------------------------------------------------
@@ -21,7 +21,7 @@ console.log(x);    // 6
 console.log(++x);  // 7 (increments then returns)
 
 // ------------------------------------------------------------
-// Comparison — always use strict equality
+// Comparison: always use strict equality
 // ------------------------------------------------------------
 
 console.log("\n=== Comparison ===");
@@ -46,7 +46,7 @@ const fallback = user || "Anonymous";  // "Anonymous"
 console.log(displayName, fallback);
 
 // ------------------------------------------------------------
-// Nullish Coalescing (??) — ES2020
+// Nullish Coalescing (??)
 // ------------------------------------------------------------
 
 // ?? returns the right side ONLY if left is null or undefined
@@ -58,7 +58,7 @@ console.log(score || 100);  // 100 (0 is falsy)
 console.log(score ?? 100);  // 0   (0 is not null/undefined)
 
 // ------------------------------------------------------------
-// Optional Chaining (?.) — ES2020
+// Optional Chaining (?.)
 // ------------------------------------------------------------
 
 const config = { db: { host: "localhost" } };
@@ -100,13 +100,65 @@ console.log(role); // "user" (not in object, uses default)
 
 console.log("\n=== Spread ===");
 
-// Copy an array
-const nums = [1, 2, 3];
-const copied = [...nums, 4, 5];
-console.log(copied); // [1, 2, 3, 4, 5]
+// Shallow copy of an array
+const numbers = [1, 2, 3];
+const copy = [...numbers];
+console.log("Original array:", numbers);
+console.log("Copied array:", copy);
 
-// Merge objects
+// Shallow copy of an object
+const alice = { name: "Alice", age: 25 };
+const copiedPerson = { ...alice };
+console.log("Copied person:", copiedPerson);
+
+// Merging arrays
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const merged = [...arr1, ...arr2];
+console.log("Merged array:", merged); // [1, 2, 3, 4, 5, 6]
+
+// Merging objects
 const defaults = { theme: "dark", lang: "en" };
 const userPrefs = { lang: "fr" };
-const merged = { ...defaults, ...userPrefs };
-console.log(merged); // { theme: "dark", lang: "fr" }
+const mergedPrefs = { ...defaults, ...userPrefs };
+console.log("Merged prefs:", mergedPrefs); // { theme: "dark", lang: "fr" }
+
+// Overriding properties in objects
+const updatedPerson = { name: "Bob", city: "New York" };
+const mergedPerson = { ...alice, ...updatedPerson };
+console.log("Merged person with override:", mergedPerson);
+// { name: "Bob", age: 25, city: "New York" }
+// The 'name' property is overridden by the one from updatedPerson
+
+// Splitting a string into an array
+const word = "hello";
+const letters = [...word];
+console.log("Letters array:", letters); // ['h', 'e', 'l', 'l', 'o']
+
+// Avoiding mutation with objects
+const modifiedObj = { ...alice, b: 3 };
+console.log("Original object:", alice);     // unchanged
+console.log("Modified object:", modifiedObj);
+
+// Shallow copy warning: nested objects are still shared
+const nestedArray = [{ name: "Alice" }, { name: "Bob" }];
+const copiedArray = [...nestedArray];
+nestedArray[0].name = "Charlie";
+console.log("Original:", nestedArray);  // [{ name: "Charlie" }, ...]
+console.log("Copy:", copiedArray);      // [{ name: "Charlie" }, ...] (same reference)
+
+// Deep copy using JSON methods
+const original = { a: 1, b: { c: 2 } };
+const deepCopy = JSON.parse(JSON.stringify(original));
+original.b.c = 3;
+console.log("Deep copy value:", deepCopy.b.c); // 2 (unaffected)
+console.log("Original value:", original.b.c);  // 3
+
+// Using spread with Sets and Maps
+const mySet = new Set([1, 2, 3]);
+const setToArray = [...mySet];
+console.log("Set to array:", setToArray); // [1, 2, 3]
+
+const myMap = new Map([["name", "Alice"], ["age", 25]]);
+const mapToArray = [...myMap];
+console.log("Map to array:", mapToArray);

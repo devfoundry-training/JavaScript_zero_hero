@@ -1,9 +1,9 @@
 // ============================================================
-// Iteration — for, while, for...of, for...in
+// Iteration: for, while, for...of, for...in
 // ============================================================
 
 // ------------------------------------------------------------
-// for loop — counted iteration
+// for loop: counted iteration
 // ------------------------------------------------------------
 
 console.log("=== for loop ===");
@@ -12,7 +12,7 @@ for (let i = 0; i < 5; i++) {
 }
 
 // ------------------------------------------------------------
-// while — condition-based
+// while: condition-based
 // ------------------------------------------------------------
 
 console.log("\n=== while ===");
@@ -23,7 +23,7 @@ while (countdown > 0) {
 }
 
 // ------------------------------------------------------------
-// do...while — runs at least once
+// do...while: runs at least once
 // ------------------------------------------------------------
 
 console.log("\n=== do...while ===");
@@ -34,7 +34,7 @@ do {
 } while (x < 5); // false immediately, but body ran once
 
 // ------------------------------------------------------------
-// for...of — iterate over values (arrays, strings, Maps, Sets)
+// for...of: iterate over values (arrays, strings, Maps, Sets)
 // ------------------------------------------------------------
 
 console.log("\n=== for...of ===");
@@ -50,7 +50,7 @@ for (const char of "Hello") {
 console.log();
 
 // ------------------------------------------------------------
-// for...in — iterate over keys/indices (objects)
+// for...in: iterate over keys/indices (objects)
 // ------------------------------------------------------------
 
 console.log("\n=== for...in ===");
@@ -59,7 +59,7 @@ for (const key in person) {
     console.log(`${key}: ${person[key]}`);
 }
 
-// for...in on arrays gives string indices — prefer for...of
+// for...in on arrays gives string indices. Prefer for...of for arrays.
 // for (const idx in fruits) { ... } // "0", "1", "2" as strings
 
 // ------------------------------------------------------------

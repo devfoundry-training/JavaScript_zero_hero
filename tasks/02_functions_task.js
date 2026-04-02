@@ -9,6 +9,7 @@
 
 
 // 2. Rewrite greet as an arrow function called greetArrow.
+//    First with implicit return, then without.
 
 
 // 3. Write a function called sum that accepts any number of
@@ -16,12 +17,17 @@
 //    Example: sum(1, 2, 3, 4) => 10
 
 
-// 4. Write a higher-order function called repeat that takes
+// 4. Demonstrate the difference between arrow functions and
+//    normal functions with "this". Create a TimerArrow and
+//    TimerNormal function similar to the functions module.
+
+
+// 5. Write a higher-order function called repeat that takes
 //    a function and a number n, and calls the function n times.
 //    Example: repeat(() => console.log("hi"), 3) prints "hi" 3 times
 
 
-// 5. Write a function called createCounter that returns an
+// 6. Write a function called createCounter that returns an
 //    object with increment(), decrement(), and value() methods.
 //    The count should be private (not directly accessible).
 //    This is the closure pattern.
@@ -31,7 +37,7 @@
 //      console.log(c.value()); // 1
 
 
-// 6. Write a function called multiplyBy that takes a factor
+// 7. Write a function called multiplyBy that takes a factor
 //    and returns a new function that multiplies its argument
 //    by that factor. (Factory pattern)
 //    Example:
@@ -39,13 +45,13 @@
 //      console.log(double(5)); // 10
 
 
-// 7. Given this array of numbers, use map, filter, and reduce
+// 8. Given this array of numbers, use map, filter, and reduce
 //    to: (a) double each number, (b) keep only values > 10,
 //    (c) sum the remaining values.
 const numbers = [1, 3, 5, 7, 9, 11];
 
 
-// 8. Write a function called once that takes a function and
+// 9. Write a function called once that takes a function and
 //    returns a version that can only be called once. Subsequent
 //    calls return the first result without re-executing.
 //    Example:
@@ -53,3 +59,7 @@ const numbers = [1, 3, 5, 7, 9, 11];
 //      initialize(); // prints "init", returns 42
 //      initialize(); // returns 42, no print
 
+
+// 10. Show the difference between the arguments object in a
+//     normal function and rest params in an arrow function.
+//     Both should sum all provided numbers.

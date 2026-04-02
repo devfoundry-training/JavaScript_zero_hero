@@ -51,3 +51,12 @@ const config = { server: { host: "localhost" } };
 //    Set displayScore to score if it's not null/undefined,
 //    otherwise 100. What's the difference from using ||?
 
+
+// 9. Create a shallow copy of this object using spread.
+//    Then modify the copy and verify the original is unchanged.
+const original = { name: "Bob", age: 25, city: "New York" };
+
+
+// 10. Given this nested object, demonstrate why a shallow copy
+//     shares nested references. Then show a deep copy using JSON.
+const nested = { a: 1, b: { c: 2 } };
