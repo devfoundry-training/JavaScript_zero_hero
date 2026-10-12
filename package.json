@@ -1,0 +1,8 @@
+{
+  "name": "javascript-zero-hero",
+  "private": true,
+  "description": "JavaScript Zero to Hero: teaching modules and the Library Manager tasks. No dependencies.",
+  "scripts": {
+    "test": "node --test tasks/11_testing/solution/library.test.js"
+  }
+}

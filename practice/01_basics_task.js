@@ -1,7 +1,7 @@
 // ============================================================
 // Task 01: Variables, Types, and Operators
 // ============================================================
-// Complete each section. Run with: node tasks/01_basics_task.js
+// Complete each section. Run with: node practice/01_basics_task.js
 // ============================================================
 
 // 1. Declare a constant called PI with the value 3.14159.

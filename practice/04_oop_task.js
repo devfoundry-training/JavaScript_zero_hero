@@ -1,7 +1,7 @@
 // ============================================================
-// Task 04: OOP — Classes, Inheritance, Encapsulation
+// Task 04: OOP: Classes, Inheritance, Encapsulation
 // ============================================================
-// Complete each section. Run with: node tasks/04_oop_task.js
+// Complete each section. Run with: node practice/04_oop_task.js
 // ============================================================
 
 // 1. Create a class called Animal with:
@@ -11,15 +11,15 @@
 
 
 // 2. Create a class called Dog that extends Animal.
-//    - constructor(name, breed) — call super with sound "Woof"
+//    - constructor(name, breed): call super with sound "Woof"
 //    - add a fetch() method that prints "{name} fetches the ball!"
 //    Create an instance, call speak() and fetch().
 
 
 // 3. Create a class called BankAccount with:
 //    - a private field #balance (set via constructor)
-//    - deposit(amount) — adds to balance, returns new balance
-//    - withdraw(amount) — subtracts if sufficient funds, throws Error if not
+//    - deposit(amount): adds to balance, returns new balance
+//    - withdraw(amount): subtracts if sufficient funds, throws Error if not
 //    - a getter for balance
 //    Demonstrate that #balance cannot be accessed directly.
 
@@ -41,8 +41,8 @@
 // 6. Create a class called Stack that uses a private array
 //    to implement:
 //    - push(item)
-//    - pop() — throws if empty
-//    - peek() — returns top without removing
+//    - pop(): throws if empty
+//    - peek(): returns top without removing
 //    - get size
 //    - isEmpty()
 

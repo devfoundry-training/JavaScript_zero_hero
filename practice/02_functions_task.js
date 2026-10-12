@@ -1,7 +1,7 @@
 // ============================================================
 // Task 02: Functions, Closures, Higher-Order
 // ============================================================
-// Complete each section. Run with: node tasks/02_functions_task.js
+// Complete each section. Run with: node practice/02_functions_task.js
 // ============================================================
 
 // 1. Write a function called greet that takes a name parameter

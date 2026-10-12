@@ -1,0 +1,6 @@
+{
+  "name": "library-manager-tasks",
+  "private": true,
+  "description": "Zero to Hero tasks: every .js file in tasks/ is an ES module (import / export)",
+  "type": "module"
+}

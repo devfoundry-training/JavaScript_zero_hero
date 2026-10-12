@@ -1,7 +1,7 @@
 // ============================================================
 // Task 03: Async: Promises and async/await
 // ============================================================
-// Complete each section. Run with: node tasks/03_async_task.js
+// Complete each section. Run with: node practice/03_async_task.js
 // ============================================================
 
 // Helper: simulates an async database lookup
