@@ -1,5 +1,7 @@
 # JavaScript Zero to Hero
 
+[![Tasks](https://github.com/devfoundry-training/JavaScript_zero_hero/actions/workflows/tasks.yml/badge.svg)](https://github.com/devfoundry-training/JavaScript_zero_hero/actions/workflows/tasks.yml)
+
 A structured teaching repository covering JavaScript from variables and types through to async/await, DOM manipulation, and ES6+ patterns. Each module is a standalone, runnable file with inline commentary. Part of the Zero to Hero course family.
 
 ---
